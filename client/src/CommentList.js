@@ -11,7 +11,7 @@ const CommentList = ({ comments }) => {
     }
 
     if (comment.status === "rejected") {
-      content = "Rejected";
+      content = "The comment was rejected";
     }
 
     if (comment.status === "pending") {
