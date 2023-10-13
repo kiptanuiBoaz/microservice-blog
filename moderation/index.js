@@ -14,13 +14,13 @@ app.post("/events", async (req, res) => {
         await axios.post("http://localhost:4005/events", {
             type: "CommentModerated",
             data: {
-                status,
-                ...data
+                
+                ...data,status
             }
         })
     }
 
-    res.status(204).send({})
+    res.status(204).send({});
 });
 
 app.listen(4003, () => {
