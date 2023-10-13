@@ -21,15 +21,15 @@ app.post("/events", (req, res) => {
         const { id, title } = data;
 
         posts[id] = { id, title, comments: [] }
-     
+
     }
 
     //find specific post and add comment to it
     if (type === "CommentCreated") {
-        const { id, content, postId } = data;
+        const { id, content, postId, status } = data;
 
         const post = posts[postId];
-        post.comments.push({ id, content });
+        post.comments.push({ id, content, status });
     }
 
     console.log(posts);
@@ -38,5 +38,5 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4002, () => {
-    console.log('Server is running on port 4002');
+    console.log('Query server is running on port 4002');
 })

@@ -20,7 +20,7 @@ app.post("/posts/:id/comments", (req, res) => {
 
     const comments = commentsByPostId[req.params.id] || [];
 
-    comments.push({ id: commentId, content });
+    comments.push({ id: commentId, content,status:"pending" });
 
     commentsByPostId[req.params.id] = comments;
 
@@ -29,7 +29,8 @@ app.post("/posts/:id/comments", (req, res) => {
         data: {
             id: commentId,
             content,
-            postId: req.params.id
+            postId: req.params.id,
+            status:"pending",
         }
     });
 
@@ -43,5 +44,5 @@ app.post("/events", (req, res) => {
 })
 
 app.listen(4001, () => {
-    console.log('Server is running on port 4001');
+    console.log('Comments server is running on port 4001');
 })
